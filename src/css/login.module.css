@@ -1,0 +1,80 @@
+.container {
+  display: flex;
+}
+.imageWrapper {
+  position: relative;
+  width: 50%;
+}
+.banner {
+  border: 2px solid red;
+  display: block;
+  position: relative;
+  background-size: cover;
+  height: 100vh;
+  width: 100%;
+}
+.twIcon {
+  position: absolute;
+  font-size: 300px;
+  border: 1px solid yellow;
+  top: 50%;
+  left: 30%;
+  transform: translateX(-50%);
+  transform: translateY(-50%);
+}
+path {
+  fill: rebeccapurple;
+  fill: white;
+}
+/* CONTENT START*/
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 2rem 0px 0px 2rem;
+  width: 50%;
+  border: 2px solid rebeccapurple;
+}
+.contentIcon {
+  font-size: 3rem;
+}
+.contentIcon > path {
+  fill: rgb(29, 155, 240);
+}
+.content > h1 {
+  font-size: 4.5rem;
+  margin: 2rem 0px 2rem 0px;
+}
+.innerContent {
+  border: 1px solid blue;
+}
+.innerContent > h3 {
+  font-size: 2rem;
+  margin: 1rem 0px 1rem 0px;
+}
+.signupBtn {
+  width: 150px;
+  height: 30px;
+  background-color: white;
+  color: black;
+  text-transform: 500;
+}
+
+@media screen and (max-width: 900px) {
+  .container {
+    display: flex;
+    flex-direction: column;
+    flex-direction: column-reverse;
+  }
+  .imageWrapper {
+    width: 100%;
+  }
+  .banner {
+    width: 100%;
+    height: 20rem;
+  }
+  .twIcon {
+    left: 40%;
+    font-size: 10rem;
+  }
+}
