@@ -1,0 +1,12 @@
+.container {
+  display: flex;
+  flex-direction: row;
+  border: 1px solid red;
+}
+.main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: rgb(247, 229, 225);
+  width: 50%;
+}

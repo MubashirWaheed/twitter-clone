@@ -1,0 +1,12 @@
+.container {
+  display: flex;
+  border: 1px olive solid;
+}
+.avatar {
+  width: 30px;
+  height: 30px;
+  border-radius: 15px;
+}
+.tweetcontainer {
+  background-color: white;
+}
