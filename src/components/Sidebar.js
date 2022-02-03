@@ -1,4 +1,4 @@
-import { useEffect, useLayoutEffect, useRef, useState } from 'react'
+import { useEffect, useLayoutEffect, useState } from 'react'
 import css from '../css/sidebar.module.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faTwitter } from "@fortawesome/free-brands-svg-icons"
@@ -7,6 +7,7 @@ import { faBell } from '@fortawesome/free-solid-svg-icons'
 import { faEnvelope } from '@fortawesome/free-solid-svg-icons'
 import { faBookmark } from '@fortawesome/free-solid-svg-icons'
 import { faUser } from '@fortawesome/free-solid-svg-icons'
+import { faFeather } from '@fortawesome/free-solid-svg-icons'
 import avatar from '../images/twitter-login.png'
 
 
@@ -19,7 +20,6 @@ const Sidebar = ()=>{
     })
     return (
         <div className={css.container}>
-            <h1>Sidebar</h1>
             <FontAwesomeIcon className={css.twitterIcon} icon={faTwitter}></FontAwesomeIcon>
             <div className={css.iconWrapper}>
                 <div className={css.div1}>
@@ -29,7 +29,7 @@ const Sidebar = ()=>{
                     <FontAwesomeIcon className={css.icon} icon={faBookmark}></FontAwesomeIcon>
                     <FontAwesomeIcon className={css.icon} icon={faUser}></FontAwesomeIcon>
                 </div>
-                {width > 550 && <div className={css.div2}>
+                {width > 700 && <div className={css.div2}>
                     <p>Home</p>
                     <p>Notifications</p>
                     <p>Messages</p>
@@ -38,11 +38,12 @@ const Sidebar = ()=>{
                 </div>
                 }
             </div>
-            <button>Tweet</button>
+            {width > 700 && <button className={css.tweetBtn}>Tweet</button>}
+            {width < 700 && <FontAwesomeIcon className={css.feather} icon={faFeather}></FontAwesomeIcon>}
             <div className={css.user}>
                 <img class={css.avatar} src={avatar} alt="avatar" />
-                <div>
-                    <p>Mubashir</p>
+                <div className={css.nameWraper}>
+                    <h4>Mubashir</h4>
                     <p>@Mubahsir</p>
                 </div>
             </div>
