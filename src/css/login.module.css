@@ -6,7 +6,6 @@
   width: 50%;
 }
 .banner {
-  border: 2px solid red;
   display: block;
   position: relative;
   background-size: cover;
@@ -16,14 +15,12 @@
 .twIcon {
   position: absolute;
   font-size: 300px;
-  border: 1px solid yellow;
   top: 50%;
   left: 30%;
   transform: translateX(-50%);
   transform: translateY(-50%);
 }
 path {
-  fill: rebeccapurple;
   fill: white;
 }
 /* CONTENT START*/
@@ -31,9 +28,8 @@ path {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  padding: 2rem 0px 0px 2rem;
+  padding: 2rem 0px 0px 5rem;
   width: 50%;
-  border: 2px solid rebeccapurple;
 }
 .contentIcon {
   font-size: 3rem;
@@ -45,19 +41,56 @@ path {
   font-size: 4.5rem;
   margin: 2rem 0px 2rem 0px;
 }
-.innerContent {
-  border: 1px solid blue;
-}
+
 .innerContent > h3 {
   font-size: 2rem;
   margin: 1rem 0px 1rem 0px;
 }
-.signupBtn {
-  width: 150px;
-  height: 30px;
+
+.btnWrapper > p {
+  font-weight: 200;
+  font-size: 12px;
+  max-width: 300px;
+}
+.btnWrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.signupBtn,
+.signUpGoogle {
+  width: 300px;
+  height: 40px;
   background-color: white;
   color: black;
   text-transform: 500;
+  border-radius: 20px;
+  cursor: pointer;
+  user-select: none;
+}
+.signupBtn {
+  background-color: rgb(29, 155, 240);
+  color: white;
+  outline: none;
+  border: none;
+  user-select: none;
+  font-weight: 700;
+}
+.signinWrapper {
+  margin-top: 30px;
+}
+.signinWrapper > .signin {
+  width: 300px;
+  color: rgb(29, 155, 240);
+  background-color: white;
+  outline: none;
+  height: 40px;
+  cursor: pointer;
+  border-radius: 40px;
+  margin-top: 10px;
+  font-weight: 700;
+  user-select: none;
 }
 
 @media screen and (max-width: 900px) {
