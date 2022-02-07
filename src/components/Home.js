@@ -1,19 +1,28 @@
+import { useLayoutEffect } from 'react'
 import css from '../css/home.module.css'
 import Sidebar from "./Sidebar"
 import Tweet from './Tweet'
 import Feed from './Feed'
 import Aside  from './Aside'
+import { useState } from 'react/cjs/react.development'
 
 const Home = () => {
+    const [width, setWidth] = useState(document.documentElement.clientWidth);
+    useLayoutEffect(()=>{
+        window.addEventListener("resize",()=>{
+            setWidth(window.innerWidth);
+        })
+    })
     return (
         <div className={css.container}>
             <Sidebar/>
             <div className={css.main}>
-                <header>Home</header>
+                <h2>Home</h2>
                 <Tweet />
                 <Feed/>
             </div>
-            <Aside />
+            {width > 800 && <Aside />}
+            
         </div>
     )
 }

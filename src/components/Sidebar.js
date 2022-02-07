@@ -41,7 +41,7 @@ const Sidebar = ()=>{
             {width > 700 && <button className={css.tweetBtn}>Tweet</button>}
             {width < 700 && <FontAwesomeIcon className={css.feather} icon={faFeather}></FontAwesomeIcon>}
             <div className={css.user}>
-                <img class={css.avatar} src={avatar} alt="avatar" />
+                <img className={css.avatar} src={avatar} alt="avatar" />
                 <div className={css.nameWraper}>
                     <h4>Mubashir</h4>
                     <p>@Mubahsir</p>

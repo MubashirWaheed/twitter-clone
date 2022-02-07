@@ -1,12 +1,42 @@
 .container {
   display: flex;
-  border: 1px olive solid;
+  background-color: rgb(248, 248, 248);
+  border-radius: 15px;
 }
 .avatar {
   width: 30px;
   height: 30px;
   border-radius: 15px;
+  margin: 10px 0px 0px 0px;
 }
 .tweetcontainer {
-  background-color: white;
+  background-color: rgb(248, 248, 248);
+  margin-left: 1rem;
+}
+.textarea {
+  background-color: rgb(248, 248, 248);
+  width: 100%;
+  height: 100px;
+  outline: none;
+  border: none;
+  padding: 10px 0px 0px 10px;
+  font-size: 20px;
+}
+@media screen and (min-width: 800px) {
+  .textarea {
+    width: 350px;
+    height: 100px;
+  }
+}
+@media screen and (max-width: 800px) {
+  .container {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    /* background-color: yellow; */
+  }
+  .textarea {
+    font-size: 15px;
+    width: 250px;
+  }
 }

@@ -3,10 +3,13 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faTwitter } from "@fortawesome/free-brands-svg-icons"
 import { faTimes } from '@fortawesome/free-solid-svg-icons'
 
+
 const SignupModal = ({setSignupModal})=>{
+    
+
     return (
         <div className={css.modalBackground}>
-            <form method='POST' className={css.modalContainer}>
+            <form method='POST'  className={css.modalContainer}>
                 <FontAwesomeIcon className={css.close} icon={faTimes} onClick={()=>{setSignupModal(false)}} title='Close'></FontAwesomeIcon>
                 <FontAwesomeIcon className={css.icon} icon={faTwitter}></FontAwesomeIcon>
                 <div className={css.wrapper}>

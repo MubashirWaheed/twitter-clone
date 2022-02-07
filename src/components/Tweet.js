@@ -5,7 +5,7 @@ const Tweet = ()=>{
         <div className={css.container}>
             <img className={css.avatar} src={avatar} alt="avatar" />
             <form action="POST" className={css.tweetcontainer}>
-                <textarea placeholder="What's happening?"/>
+                <textarea className={css.textarea} placeholder="What's happening?"/>
                 <button>Tweet</button>
             </form>
         </div>

@@ -5,33 +5,28 @@ import { faTwitter } from "@fortawesome/free-brands-svg-icons"
 import { faTimes } from '@fortawesome/free-solid-svg-icons'
 import { auth } from "../Firebase/config";
 import { signInWithEmailAndPassword } from "firebase/auth";
-import { useNavigate } from "react-router-dom";
 
 const SignInModal = ({setSigninModal})=>{
-    const [formData, setFormData] = useState(
-        { email: "", password: ""}
-        )
-    let navigate =  useNavigate();
-    
+    const [formData, setFormData] = useState({
+        email: "", password: ""
+    })
     const handleData = (e)=>{
         setFormData((prevData)=>{
             return {
                 ...prevData,
-                [e.target.name] : e.target.value
+                [e.target.name] : [e.target.value]
             }
         })
     }
-    
     const signup = async (e) =>{
         e.preventDefault();
         const {email, password} = formData;
-        try{
-            const credentials = await signInWithEmailAndPassword(auth,email, password)
-            console.log(credentials);
-            navigate('/');
-        }catch(error){
-            console.log(error);
-        }
+        signInWithEmailAndPassword(auth,email, password)
+        .then((credentials)=>{
+            console.log('credentials', credentials);
+            console.log('user logged in');
+        })
+        // console.log('test',test);
     }
     return (
         <div className={css.modalBackground}>
