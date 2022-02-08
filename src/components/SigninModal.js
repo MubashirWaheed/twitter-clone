@@ -26,8 +26,9 @@ const SignInModal = ({setSigninModal})=>{
         e.preventDefault();
         const {email, password} = formData;
         try{
-            const credentials = await signInWithEmailAndPassword(auth,email, password)
-            console.log(credentials);
+            const user = await signInWithEmailAndPassword(auth,email, password);
+            localStorage.setItem("currentUser",JSON.stringify(user));
+            console.log(user);
             navigate('/');
         }catch(error){
             console.log(error);
