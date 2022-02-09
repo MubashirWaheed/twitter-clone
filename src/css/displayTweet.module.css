@@ -1,0 +1,46 @@
+.container {
+  display: flex;
+  margin: 5px 0px;
+  background-color: rgb(246, 248, 250);
+}
+.avi {
+  margin: 1rem 1rem 1rem 2rem;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+}
+.wrapper {
+  width: 100%;
+  margin: 0px 0px 0px 0.5rem;
+  padding-top: 0.8rem;
+}
+.userName {
+  display: flex;
+}
+.userName > p {
+  margin-left: 5px;
+}
+.iconWrapper {
+  display: flex;
+  margin: 10px 0px 5px 0px;
+}
+
+.icon {
+  margin: 0px 80px;
+}
+.icon:first-child {
+  margin: 0px 80px 0px 30px;
+}
+.icon > path {
+  cursor: pointer;
+  stroke-width: 40;
+  stroke: rgb(131, 131, 131);
+}
+.retweet {
+  font-size: 20px;
+  cursor: pointer;
+}
+.retweet > path {
+  stroke-width: 40;
+  stroke: rgb(131, 131, 131);
+}

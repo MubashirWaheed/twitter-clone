@@ -1,7 +1,7 @@
 .container {
   display: flex;
   flex-direction: row;
-  border: 1px solid red;
+  /* border: 1px solid red; */
 }
 .main {
   display: flex;
@@ -11,7 +11,7 @@
 }
 @media screen and (max-width: 800px) {
   .container {
-    background-color: rgb(255, 129, 107);
+    /* background-color: rgb(255, 129, 107); */
     width: 100%;
   }
   .main {

@@ -1,5 +1,6 @@
 import css from '../css/feed.module.css'
 import { useEffect, useState } from 'react';
+import DisplayTweet from "./DisplayTweet";
 import { db } from '../Firebase/config';
 import { collection, onSnapshot, getDocs, query, where,orderBy } from 'firebase/firestore';
 
@@ -42,11 +43,12 @@ const Feed = ()=>{
             {
                 tweets.map((item)=>{
                     return (
-                        <p key={item.uuid}>{item.tweet}</p>
+                        <div key={item.uuid}>
+                            <DisplayTweet  item={item}/>
+                        </div>
                     );
                 })
             }
-            <h1>Feed</h1>
         </div>
     )
 }
