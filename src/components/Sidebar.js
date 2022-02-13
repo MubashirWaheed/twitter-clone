@@ -29,7 +29,7 @@ const Sidebar = ()=>{
                     <FontAwesomeIcon className={css.icon} icon={faBookmark}></FontAwesomeIcon>
                     <FontAwesomeIcon className={css.icon} icon={faUser}></FontAwesomeIcon>
                 </div>
-                {width > 700 && <div className={css.div2}>
+                {width > 800 && <div className={css.div2}>
                     <p>Home</p>
                     <p>Notifications</p>
                     <p>Messages</p>
@@ -38,14 +38,16 @@ const Sidebar = ()=>{
                 </div>
                 }
             </div>
-            {width > 700 && <button className={css.tweetBtn}>Tweet</button>}
-            {width < 700 && <FontAwesomeIcon className={css.feather} icon={faFeather}></FontAwesomeIcon>}
+            {width > 800 && <button className={css.tweetBtn}>Tweet</button>}
+            {width < 800 && <FontAwesomeIcon className={css.feather} icon={faFeather}></FontAwesomeIcon>}
             <div className={css.user}>
                 <img className={css.avatar} src={avatar} alt="avatar" />
+                {width > 800 && 
                 <div className={css.nameWraper}>
                     <h4>Mubashir</h4>
                     <p>@Mubahsir</p>
                 </div>
+                }
             </div>
         </div>
     )
