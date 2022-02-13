@@ -9,8 +9,8 @@ const DisplayTweet = ({item})=>{
             <img className={css.avi} src={Avi} alt="avi" />
             <div className={css.wrapper}>
                 <div className={css.userName}>
-                    <h3>Mubashir</h3>
-                    <p>@mubashir</p>
+                    <h3>{item.name}</h3>
+                    <p>@{item.username}</p>
                 </div>
                 <p >{item.tweet}</p>
                 <div className={css.iconWrapper}>

@@ -9,15 +9,36 @@ import { faBookmark } from '@fortawesome/free-solid-svg-icons'
 import { faUser } from '@fortawesome/free-solid-svg-icons'
 import { faFeather } from '@fortawesome/free-solid-svg-icons'
 import avatar from '../images/twitter-login.png'
+import { doc, getDoc } from "firebase/firestore";
+import {db} from '../Firebase/config';
 
 
 const Sidebar = ()=>{
+    const uid = JSON.parse(localStorage.getItem("currentUser")).user.uid;
     const [width, setWidth] = useState(document.documentElement.clientWidth);
+    const [user, setUser] = useState('');
     useLayoutEffect(()=>{
         window.addEventListener("resize",()=>{
             setWidth(window.innerWidth);
         })
-    })
+    });
+
+    const docRef = doc(db, "users", uid);
+    useEffect(()=>{
+        const getUser = async ()=>{
+            const docSnap = await getDoc(docRef);
+            if(docSnap.exists){
+                setUser(()=>{
+                    return {...docSnap.data()};
+                })
+            }
+        }
+        if(!user){
+            getUser();
+        }
+    
+    },[]);
+
     return (
         <div className={css.container}>
             <FontAwesomeIcon className={css.twitterIcon} icon={faTwitter}></FontAwesomeIcon>
@@ -44,8 +65,8 @@ const Sidebar = ()=>{
                 <img className={css.avatar} src={avatar} alt="avatar" />
                 {width > 800 && 
                 <div className={css.nameWraper}>
-                    <h4>Mubashir</h4>
-                    <p>@Mubahsir</p>
+                    <h4>{user.name}</h4>
+                    <p>@{user.username}</p>
                 </div>
                 }
             </div>
