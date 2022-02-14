@@ -33,6 +33,10 @@
   text-transform: capitalize;
   font-weight: 700;
 }
+.submit:disabled {
+  background-color: rgb(142, 205, 248);
+}
+
 @media screen and (min-width: 800px) {
   .textarea {
     width: 350px;

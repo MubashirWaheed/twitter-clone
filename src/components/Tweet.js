@@ -34,7 +34,7 @@ const Tweet = ()=>{
                     placeholder="What's happening?"
                     onChange={(e)=>{setTweet(e.target.value)}} 
                 />
-                <input class={css.submit} type="submit" name="submit" id="submit"value="tweet" />
+                <input disabled={tweet? false : true} className={css.submit} type="submit" name="submit" id="submit"value="tweet" />
             </form>
         </div>
     )
