@@ -23,10 +23,11 @@ const Sidebar = ()=>{
         })
     });
 
-    const docRef = doc(db, "users", uid);
     useEffect(()=>{
+        const docRef = doc(db, "users", uid);
         const getUser = async ()=>{
             const docSnap = await getDoc(docRef);
+            console.log(docSnap.data());
             if(docSnap.exists){
                 setUser(()=>{
                     return {...docSnap.data()};

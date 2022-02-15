@@ -54,11 +54,11 @@ const SignupModal = ({setSignupModal})=>{
                 // Create a newuser in firestore 
                 const newUser = await createUserWithEmailAndPassword(auth, formData.email ,formData.password);
                 localStorage.setItem("currentUser",JSON.stringify(newUser));
-
+                console.log('newUser',newUser.user);
                 // Add a new user in firestore .
                 await addDoc(collection(db, "users"), {
                     name: formData.name,
-                    username: `@${formData.username}`,
+                    username: `${formData.username}`,
                     uid:newUser.user.uid,
                     following:["wpLesz9IbzgxuHmW4Weba2EJTW53"],
                     followers:[]
