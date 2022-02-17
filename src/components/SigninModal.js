@@ -1,5 +1,5 @@
 import css from '../css/signinModal.module.css'
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faTwitter } from "@fortawesome/free-brands-svg-icons"
 import { faTimes } from '@fortawesome/free-solid-svg-icons'
@@ -34,16 +34,38 @@ const SignInModal = ({setSigninModal})=>{
             console.log(error);
         }
     }
+
+    const closeOnBackground = (e)=>{
+        if(e.target.id === "background"){
+            setSigninModal(false);
+        }
+    } 
+
     return (
-        <div className={css.modalBackground}>
+        <div className={css.modalBackground} id="background" onClick={closeOnBackground}>
             <form method='POST' onSubmit={signup} className={css.modalContainer}>
                 <FontAwesomeIcon className={css.close} icon={faTimes} onClick={()=>{setSigninModal(false)}} title='Close'></FontAwesomeIcon>
                 <FontAwesomeIcon className={css.icon} icon={faTwitter}></FontAwesomeIcon>
                 <div className={css.wrapper}>
                     <label htmlFor="email">Email</label>
-                    <input type="email" onChange={handleData} name="email" id="email" placeholder='Emaiil' autoComplete='Off' />
+                    <input 
+                        type="email"
+                        onChange={handleData} 
+                        name="email" 
+                        id="email" 
+                        placeholder='Email' 
+                        autoComplete='Off'
+                        required
+                     />
                     <label htmlFor="password">Password</label>
-                    <input type="password" onChange={handleData} name="password" placeholder='Password' id="password" />
+                    <input 
+                        type="password"
+                        onChange={handleData} 
+                        name="password" 
+                        placeholder='Password' 
+                        id="password"
+                        required
+                    />
                     <input type="submit" name="submit"  />
                 </div>
             </form>

@@ -42,7 +42,6 @@ const SignupModal = ({setSignupModal})=>{
 
         querySnapshot.forEach((doc) => {
             test = doc.data(); 
-            console.log(test);
         });
 
         // If username present set errror and return 
@@ -67,16 +66,20 @@ const SignupModal = ({setSignupModal})=>{
                 navigate('/');
 
             }catch(error){
-
                 // If user present with that email => set email error 
                 setEmailError('email already in use');
             }
         }
     }
+    const closeOnBackground = (e)=>{
+        if(e.target.id === "background"){
+            setSignupModal(false);
+        }
+    } 
 
     return (
-        <div className={css.modalBackground}>
-            <form method='POST'  className={css.modalContainer} id="signUp">
+        <div className={css.modalBackground} id="background" onClick={closeOnBackground}>
+            <form method='POST'  className={css.modalContainer} id="signUp" onSubmit={handleSignUp}>
                 <FontAwesomeIcon className={css.close} icon={faTimes} onClick={()=>{setSignupModal(false)}} title='Close'></FontAwesomeIcon>
                 <FontAwesomeIcon className={css.icon} icon={faTwitter}></FontAwesomeIcon>
                 <div className={css.wrapper}>
@@ -88,6 +91,7 @@ const SignupModal = ({setSignupModal})=>{
                         id="username"
                         autoComplete='off'
                         placeholder='Username'
+                        required
                     />
                     {usernameError && <div>{usernameError}</div>}
                     <label htmlFor="displayName">Display Name</label>
@@ -97,6 +101,7 @@ const SignupModal = ({setSignupModal})=>{
                         name="name"
                         autoComplete='off' 
                         placeholder='Display Name' 
+                        required
                     />
                     <label htmlFor="email">Email</label>
                     <input 
@@ -105,7 +110,8 @@ const SignupModal = ({setSignupModal})=>{
                         name="email" 
                         id="email" 
                         placeholder='Email' 
-                        autoComplete='off' 
+                        autoComplete='off'
+                        required 
                     />
                     {emailError && <div>{emailError}</div>}
                     <label htmlFor="password">Password</label>
@@ -114,10 +120,10 @@ const SignupModal = ({setSignupModal})=>{
                         type="password" 
                         name="password" 
                         placeholder='Password' 
-                        id="password" 
+                        id="password"
+                        required
                     />
                     <input 
-                        onClick={handleSignUp}
                         type="submit" 
                         name="submit"  
                     />

@@ -35,7 +35,7 @@ path {
   font-size: 3rem;
 }
 .contentIcon > path {
-  fill: rgb(29, 155, 240);
+  fill: var(--twitter-color);
 }
 .content > h1 {
   font-size: 4.5rem;
@@ -70,19 +70,22 @@ path {
   user-select: none;
 }
 .signupBtn {
-  background-color: rgb(29, 155, 240);
+  background-color: var(--twitter-color);
   color: white;
   outline: none;
   border: none;
   user-select: none;
   font-weight: 700;
 }
+.signupBtn:active {
+  background-color: var(--btn-active);
+}
 .signinWrapper {
   margin-top: 30px;
 }
 .signinWrapper > .signin {
   width: 300px;
-  color: rgb(29, 155, 240);
+  color: var(--twitter-color);
   background-color: white;
   outline: none;
   height: 40px;
@@ -98,6 +101,16 @@ path {
     display: flex;
     flex-direction: column;
     flex-direction: column-reverse;
+    justify-content: center;
+    padding-left: 0rem;
+  }
+  .content {
+    align-items: center;
+    width: 100%;
+    padding: 0.6rem;
+  }
+  .content > h1 {
+    text-align: center;
   }
   .imageWrapper {
     width: 100%;

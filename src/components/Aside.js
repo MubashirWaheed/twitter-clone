@@ -35,7 +35,7 @@ const Aside = ()=>{
                     <button className={css.follow}>Follow</button>
                 </div>
             </div>
-            <Suggestions  follow={follow} uid={uid}/>
+            {/* <Suggestions  follow={follow} uid={uid}/> */}
         </div>
     )
 }

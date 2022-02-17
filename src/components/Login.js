@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import css from '../css/login.module.css'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faTwitter } from "@fortawesome/free-brands-svg-icons"
 import loginImage from '../images/twitter-login.png'
 import SignInModal from "./SigninModal";
-import SignupModal from "./SIgnupModal";
+import SignupModal from "./SignupModal";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faTwitter } from "@fortawesome/free-brands-svg-icons"
 
 
 const Login = () => {
