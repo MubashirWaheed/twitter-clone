@@ -2,7 +2,7 @@
 
 Created using React and Firebase.
 
-![Login image]('/public/images/login.png')
+![Login image](/public/images/login.png)
 
 ![Feed image](/public/images/feed.png)
 
