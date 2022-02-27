@@ -10,13 +10,27 @@ import { faUser } from '@fortawesome/free-solid-svg-icons'
 import { faFeather } from '@fortawesome/free-solid-svg-icons'
 import avatar from '../images/twitter-login.png'
 import { doc, getDoc } from "firebase/firestore";
-import {db} from '../Firebase/config';
+import { db, auth} from '../Firebase/config';
+import { signOut } from "firebase/auth";
+import { useNavigate } from 'react-router-dom'
 
 
 const Sidebar = ()=>{
+    let navigate = useNavigate();
     const uid = JSON.parse(localStorage.getItem("currentUser")).user.uid;
     const [width, setWidth] = useState(document.documentElement.clientWidth);
     const [user, setUser] = useState('');
+
+    const logout = ()=>{
+        signOut(auth).then(() => {
+            console.log('user logged out')
+            localStorage.clear()
+            navigate('/login')
+        }).catch((error) => {
+            alert(error)
+        });
+    }
+
     useLayoutEffect(()=>{
         window.addEventListener("resize",()=>{
             setWidth(window.innerWidth);
@@ -37,7 +51,6 @@ const Sidebar = ()=>{
         if(!user ){
             getUser();
         }
-    
     },[]);
 
     return (
@@ -60,7 +73,12 @@ const Sidebar = ()=>{
                 </div>
                 }
             </div>
-            {width > 800 && <button className={css.tweetBtn}>Tweet</button>}
+            {width > 800 && <button 
+                className={css.tweetBtn}
+                onClick={logout}
+                >
+                    Logout
+                </button>}
             {width < 800 && <FontAwesomeIcon className={css.feather} icon={faFeather}></FontAwesomeIcon>}
             <div className={css.user}>
                 <img className={css.avatar} src={avatar} alt="avatar" />

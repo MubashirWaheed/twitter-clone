@@ -1,15 +1,23 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import css from '../css/login.module.css'
 import loginImage from '../images/twitter-login.png'
 import SignInModal from "./SigninModal";
 import SignupModal from "./SignupModal";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faTwitter } from "@fortawesome/free-brands-svg-icons"
-
+import { useNavigate } from "react-router-dom";
 
 const Login = () => {
+    let navigate = useNavigate();
+    const uid = JSON.parse(localStorage.getItem("currentUser"));
     const [signinModal, setSigninModal] = useState(false);
     const [signupModal, setSignupModal] = useState(false)
+    useEffect(()=>{
+        if(uid !== null){
+            navigate('/')
+        }
+    },[])
+    
     // signInWithEmailAndPassword    
     return(
         <div className={css.container}>
@@ -37,7 +45,6 @@ const Login = () => {
                 </div>
             </div>
         </div>
-        
     )
 }
 export default Login
