@@ -19,6 +19,9 @@ const Feed = ()=>{
                 querySnapshot.forEach((doc)=>{
                     following.push(doc.data().following);
                 });
+                // Adding logged in user ot following state so that I can show tweet from logged user on feed in real time 
+                following[0].push(uid);
+                
             };
             // Querying tweets from firestore
             const k = query(collection(db, "tweets"), orderBy("timeStamp", "desc"),where("creatorId", "in", following[0]));

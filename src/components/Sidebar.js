@@ -39,15 +39,17 @@ const Sidebar = ()=>{
 
     useEffect(()=>{
         const docRef = doc(db, "users", uid);
+        // Fetching current user info from firestore 
         const getUser = async ()=>{
             const docSnap = await getDoc(docRef);
-            console.log(docSnap.data());
+            // console.log(docSnap.data());
             if(docSnap.exists){
                 setUser(()=>{
                     return {...docSnap.data()};
                 })
             }
         }
+        // only runs when user not stored in state 
         if(!user ){
             getUser();
         }

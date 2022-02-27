@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faTwitter } from "@fortawesome/free-brands-svg-icons"
 import { faTimes } from '@fortawesome/free-solid-svg-icons'
 import { auth, db } from '../Firebase/config';
-import { collection, query, where,getDocs, addDoc } from "firebase/firestore";
+import { collection, query, where,getDocs, doc, setDoc } from "firebase/firestore";
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import { useNavigate } from 'react-router-dom';
 
@@ -55,7 +55,7 @@ const SignupModal = ({setSignupModal})=>{
                 localStorage.setItem("currentUser",JSON.stringify(newUser));
                 console.log('newUser',newUser.user);
                 // Add a new user in firestore .
-                await addDoc(collection(db, "users"), {
+                await setDoc(doc(db, "users", newUser.user.uid), {
                     name: formData.name,
                     username: `${formData.username}`,
                     uid:newUser.user.uid,

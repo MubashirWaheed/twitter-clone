@@ -1,5 +1,5 @@
 import css from '../css/signinModal.module.css'
-import { useEffect, useState } from 'react';
+import {  useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faTwitter } from "@fortawesome/free-brands-svg-icons"
 import { faTimes } from '@fortawesome/free-solid-svg-icons'
@@ -28,7 +28,6 @@ const SignInModal = ({setSigninModal})=>{
         try{
             const user = await signInWithEmailAndPassword(auth,email, password);
             localStorage.setItem("currentUser",JSON.stringify(user));
-            console.log(user);
             navigate('/');
         }catch(error){
             console.log(error);
@@ -69,7 +68,6 @@ const SignInModal = ({setSigninModal})=>{
                     <input type="submit" name="submit"  />
                 </div>
             </form>
-            
         </div>
     )
 }
