@@ -1,28 +1,37 @@
-import { useLayoutEffect,useState } from 'react'
+import { useEffect, useLayoutEffect,useState } from 'react'
 import css from '../css/home.module.css'
 import Sidebar from "./Sidebar"
 import Tweet from './Tweet'
 import Feed from './Feed'
 import Aside  from './Aside'
+import { useNavigate } from 'react-router-dom'
 
 const Home = () => {
     const [width, setWidth] = useState(document.documentElement.clientWidth);
+    const uid = JSON.parse(localStorage.getItem("currentUser"));
+    const navigate = useNavigate();
     
     useLayoutEffect(()=>{
         window.addEventListener("resize",()=>{
             setWidth(window.innerWidth);
         })
     });
+    
+    useEffect(()=>{
+        if(uid == null){
+            navigate('/login')
+        }        
+    },[])
 
     return (
         <div className={css.container}>
-            <Sidebar/>
+            {uid && <Sidebar/>}
             <div className={css.main}>
                 <h2>Home</h2>
-                <Tweet />
-                <Feed/>
+                { uid && <Tweet />}
+                {uid && <Feed/>}
             </div>
-            {width > 800 && <Aside />}
+            {width > 800 && uid && <Aside />}
         </div>
     )
 }

@@ -34,7 +34,7 @@ const Sidebar = ()=>{
                 })
             }
         }
-        if(!user){
+        if(!user ){
             getUser();
         }
     
