@@ -65,7 +65,11 @@ const SignInModal = ({setSigninModal})=>{
                         id="password"
                         required
                     />
-                    <input type="submit" name="submit"  />
+                    <input 
+                        type="submit" 
+                        name="submit"
+                        value="Submit"
+                    />
                 </div>
             </form>
         </div>

@@ -126,6 +126,7 @@ const SignupModal = ({setSignupModal})=>{
                     <input 
                         type="submit" 
                         name="submit"  
+                        value="Submit"
                     />
                 </div>
             </form>

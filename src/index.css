@@ -2,6 +2,7 @@
 :root {
   --twitter-color: rgb(29, 155, 240);
   --btn-active: rgba(62, 110, 220, 255);
+  --twitter-black: #151b22;
 }
 * {
   box-sizing: border-box;

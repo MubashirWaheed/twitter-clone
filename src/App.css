@@ -1,0 +1,22 @@
+input {
+  padding: 10px 10px;
+  border-radius: 5px;
+  outline: none;
+  border: 1px solid rgb(156, 179, 185);
+}
+input:focus {
+  border: 2px solid var(--twitter-color);
+}
+label {
+  margin: 5px;
+  color: var(--twitter-black);
+}
+input[type="submit"] {
+  margin: 10px;
+  cursor: pointer;
+  color: white;
+  font-weight: 700;
+  padding: 10px 45px;
+  border-radius: 15px;
+  background-color: var(--twitter-black);
+}
