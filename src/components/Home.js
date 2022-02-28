@@ -17,15 +17,17 @@ const Home = () => {
 
     useLayoutEffect(()=>{
         window.addEventListener("resize",innerWidthSet)
-        return ()=>{
-            window.removeEventListener('resize',innerWidthSet);
-        }
+       
     });
     
     useEffect(()=>{
         if(uid == null){
             navigate('/login')
-        }        
+        }
+        return ()=>{
+            window.removeEventListener('resize',innerWidthSet);
+        }
+        
     },[])
 
     return (
