@@ -1,4 +1,4 @@
-import { useEffect, useState} from "react";
+import { useEffect, useState, useRef} from "react";
 import { collection, query, getDocs, limit } from "firebase/firestore";
 import { doc, updateDoc} from "firebase/firestore";
 import { db } from '../Firebase/config';
@@ -8,6 +8,7 @@ import css from '../css/aside.module.css'
 const Suggestions = ({follow, uid})=>{
     
     const [users ,setUsers] = useState([]);
+    let mountedRef = useRef(true)
     let followingList = [...follow]
 
     const updateData = async (profile)=>{
@@ -41,6 +42,10 @@ const Suggestions = ({follow, uid})=>{
         if(follow.length > 0 ){
             getSuggestions()
         }
+        return () => { 
+            mountedRef.current = false
+          }
+
     },[follow])
 
 

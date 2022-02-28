@@ -1,10 +1,11 @@
 import css from '../css/aside.module.css'
 import Suggestions from './Suggestions'
-import { useEffect, useState } from 'react'
-import { collection, query, where, getDocs, limit } from "firebase/firestore";
+import { useEffect, useState, useRef } from 'react'
+import { collection, query, where, getDocs } from "firebase/firestore";
 import { db } from '../Firebase/config';
 const Aside = ()=>{
     const [follow, setFollow] = useState([]);
+    let mountedRef = useRef(true);
     const uid = JSON.parse(localStorage.getItem("currentUser")).user.uid;
 
     useEffect(()=>{
@@ -18,6 +19,9 @@ const Aside = ()=>{
             })        
         };
         getCurrentUser();
+        return ()=>{
+            mountedRef.current = false
+        }
     },[])
 
     return(
