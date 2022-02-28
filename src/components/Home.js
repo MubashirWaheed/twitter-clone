@@ -1,4 +1,4 @@
-import { useEffect, useLayoutEffect,useState } from 'react'
+import { useCallback, useEffect, useLayoutEffect,useState } from 'react'
 import css from '../css/home.module.css'
 import Sidebar from "./Sidebar"
 import Tweet from './Tweet'
@@ -11,10 +11,15 @@ const Home = () => {
     const uid = JSON.parse(localStorage.getItem("currentUser"));
     const navigate = useNavigate();
     
+    const innerWidthSet = useCallback(()=>{
+        setWidth(window.innerWidth)
+    },[])
+
     useLayoutEffect(()=>{
-        window.addEventListener("resize",()=>{
-            setWidth(window.innerWidth);
-        })
+        window.addEventListener("resize",innerWidthSet)
+        return ()=>{
+            window.removeEventListener('resize',innerWidthSet);
+        }
     });
     
     useEffect(()=>{
